@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('synopsis');
             $table->string('year');
             $table->string('duration');
-            $table->integer('type_duration');
             $table->integer('price');
             $table->unsignedBigInteger('format_id');
+            $table->string('image');
             $table->timestamps();
 
             $table->foreign('format_id')->references('id')->on('formats');

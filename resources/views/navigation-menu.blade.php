@@ -11,11 +11,27 @@
                 </div>
 
                 <!-- Navigation Links -->
+                @can('Manage films')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @endcan
+                @can('Manage films')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('films') }}" :active="request()->routeIs('films')">
+                        {{ __('Peliculas') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+                @can('Catalog')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('catalog') }}" :active="request()->routeIs('catalog')">
+                        {{ __('Catalogo') }}
+                    </x-nav-link>
+                </div>
+                @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

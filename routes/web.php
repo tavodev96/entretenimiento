@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\FilmsComponent;
+use App\Http\Livewire\CatalogComponent;
+use App\Http\Livewire\WatchMovieComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('films', FilmsComponent::class)->name('films')->middleware('role:Admin');
+    Route::get('catalog', CatalogComponent::class)->name('catalog');
+
+    Route::get('watchMovie/{movie}', WatchMovieComponent::class)->name('watchMovie')->middleware('permission:Catalog');
 });
